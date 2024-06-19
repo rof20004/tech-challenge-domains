@@ -7,6 +7,7 @@ import (
 	"github.com/rof20004/tech-challenge-domains/application/domains/produto"
 	"github.com/rof20004/tech-challenge-domains/application/utils"
 
+	"github.com/google/uuid"
 	"github.com/pkg/errors"
 )
 
@@ -36,6 +37,10 @@ func NovoPedido(cliente cliente.Cliente, produtos []produto.Produto) (Pedido, er
 }
 
 func (p *Pedido) validar() error {
+	if _, err := uuid.Parse(p.Id); err != nil {
+		return errors.Wrap(ErroIdPedidoInvalido, err.Error())
+	}
+
 	if err := p.Cliente.Validar(); err != nil {
 		return errors.Wrap(ErroClientePedidoInvalido, err.Error())
 	}
