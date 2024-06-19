@@ -9,18 +9,20 @@ import (
 )
 
 type Cliente struct {
-	Id    string `json:"id"`
-	Nome  string `json:"nome"`
-	Email string `json:"email"`
-	Cpf   string `json:"cpf"`
+	Id       string `json:"id"`
+	Nome     string `json:"nome"`
+	Email    string `json:"email"`
+	Cpf      string `json:"cpf"`
+	Endereco string `json:"endereco"`
 }
 
-func NovoCliente(nome, email, cpf string) (Cliente, error) {
+func NovoCliente(nome, email, cpf, endereco string) (Cliente, error) {
 	c := Cliente{
-		Id:    utils.GenerateUuid(),
-		Nome:  nome,
-		Email: email,
-		Cpf:   cpf,
+		Id:       utils.GenerateUuid(),
+		Nome:     nome,
+		Email:    email,
+		Cpf:      cpf,
+		Endereco: endereco,
 	}
 
 	return c, c.Validar()
@@ -41,6 +43,10 @@ func (c Cliente) Validar() error {
 
 	if strings.TrimSpace(c.Cpf) == "" || len(c.Cpf) != 11 {
 		return ErroCpfClienteInvalido
+	}
+
+	if strings.TrimSpace(c.Endereco) == "" {
+		return ErroEnderecoClienteObrigatorio
 	}
 
 	return nil

@@ -18,7 +18,7 @@ func TestPedido(t *testing.T) {
 }
 
 func deveCriarPedidoComSucesso(t *testing.T) {
-	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
 	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -40,7 +40,7 @@ func deveCriarPedidoComSucesso(t *testing.T) {
 
 func deveValidarPedidoAoCriar(t *testing.T) {
 	t.Run("validar id do cliente vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -57,7 +57,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar id do cliente com espaco em branco", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -74,7 +74,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar id do cliente invalido", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -91,7 +91,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar nome do cliente vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -108,7 +108,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar nome do cliente com espaco em branco", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -125,7 +125,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar email do cliente vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -142,7 +142,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar email do cliente com espaco em branco", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -159,7 +159,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar email do cliente com formato invalido", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -176,7 +176,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar cpf do cliente vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -193,7 +193,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar cpf do cliente com espaco em branco", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -210,7 +210,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar cpf do cliente com quantidade maior de caracteres", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -227,7 +227,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar cpf do cliente com quantidade maior de caracteres", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -243,8 +243,42 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
 	})
 
+	t.Run("validar endereco do cliente vazio", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produtos := []produto.Produto{produto1, produto2}
+
+		cl.Endereco = ""
+		_, err = pedido.NovoPedido(cl, produtos)
+		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
+	})
+
+	t.Run("validar endereco do cliente com espaco em branco", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produtos := []produto.Produto{produto1, produto2}
+
+		cl.Endereco = "             "
+		_, err = pedido.NovoPedido(cl, produtos)
+		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
+	})
+
 	t.Run("validar produtos com um produto de id vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -260,7 +294,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar produtos com um produto de preco igual a zero", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -276,7 +310,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar valor total passando produtos vazio", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		var produtos []produto.Produto
@@ -286,7 +320,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 	})
 
 	t.Run("validar valor total passando produtos nil", func(internal *testing.T) {
-		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
 		_, err = pedido.NovoPedido(cl, nil)
@@ -295,7 +329,7 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 }
 
 func deveAtualizarPedidoComSucesso(t *testing.T) {
-	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
 	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -320,7 +354,7 @@ func deveAtualizarPedidoComSucesso(t *testing.T) {
 }
 
 func deveValidarPedidoAoAtualizar(t *testing.T) {
-	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
 	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
@@ -345,12 +379,30 @@ func deveValidarPedidoAoAtualizar(t *testing.T) {
 	})
 
 	t.Run("validar status com espacos em branco", func(internal *testing.T) {
-		err := p.Atualizar("")
+		err := p.Atualizar("             ")
 		assert.ErrorIs(internal, err, pedido.ErroStatusPedidoInvalido)
 	})
 
 	t.Run("validar status inexistente", func(internal *testing.T) {
 		err := p.Atualizar("TESTE")
 		assert.ErrorIs(internal, err, pedido.ErroStatusPedidoInvalido)
+	})
+
+	t.Run("validar id vazio", func(internal *testing.T) {
+		p.Id = ""
+		err := p.Atualizar(pedido.FINALIZADO)
+		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
+	})
+
+	t.Run("validar id com espaco em branco", func(internal *testing.T) {
+		p.Id = "           "
+		err := p.Atualizar(pedido.FINALIZADO)
+		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
+	})
+
+	t.Run("validar id invalido", func(internal *testing.T) {
+		p.Id = "1231233123123"
+		err := p.Atualizar(pedido.FINALIZADO)
+		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 }
