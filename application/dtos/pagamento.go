@@ -1,5 +1,9 @@
 package dtos
 
+import "time"
+
+type StatusPagamento string
+
 type CartaoDto struct {
 	Bandeira    string `json:"bandeira"`
 	Numero      string `json:"numero"`
@@ -18,4 +22,15 @@ type CriarPagamentoDto struct {
 	PedidoId   string     `json:"pedidoId"`
 	ValorTotal int64      `json:"valorTotal"`
 	Cliente    ClienteDto `json:"cliente"`
+}
+
+type NotificarPagamentoDto struct {
+	Id            string          `json:"id"`
+	PedidoId      string          `json:"pedidoId"`
+	ValorTotal    int64           `json:"valorTotal"`
+	Status        StatusPagamento `json:"status"`
+	TransactionId string          `json:"transactionId"`
+	Erro          string          `json:"erro"`
+	EmailCliente  string          `json:"emailCliente"`
+	CriadoEm      time.Time       `json:"criadoEm,omitempty"`
 }
