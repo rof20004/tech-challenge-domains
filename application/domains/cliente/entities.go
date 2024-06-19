@@ -1,8 +1,11 @@
 package cliente
 
 import (
-	"github.com/rof20004/tech-challenge-domains/application/utils"
 	"strings"
+
+	"github.com/rof20004/tech-challenge-domains/application/utils"
+
+	"github.com/google/uuid"
 )
 
 type Cliente struct {
@@ -24,6 +27,10 @@ func NovoCliente(nome, email, cpf string) (Cliente, error) {
 }
 
 func (c Cliente) Validar() error {
+	if _, err := uuid.Parse(c.Id); err != nil {
+		return ErroIdClienteInvalido
+	}
+
 	if strings.TrimSpace(c.Nome) == "" {
 		return ErroNomeClienteObrigatorio
 	}

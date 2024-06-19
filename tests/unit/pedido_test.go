@@ -39,6 +39,57 @@ func deveCriarPedidoComSucesso(t *testing.T) {
 }
 
 func deveValidarPedidoAoCriar(t *testing.T) {
+	t.Run("validar id do cliente vazio", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produtos := []produto.Produto{produto1, produto2}
+
+		cl.Id = ""
+		_, err = pedido.NovoPedido(cl, produtos)
+		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
+	})
+
+	t.Run("validar id do cliente com espaco em branco", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produtos := []produto.Produto{produto1, produto2}
+
+		cl.Id = "           "
+		_, err = pedido.NovoPedido(cl, produtos)
+		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
+	})
+
+	t.Run("validar id do cliente invalido", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produtos := []produto.Produto{produto1, produto2}
+
+		cl.Id = "132131233912i3193i1391i"
+		_, err = pedido.NovoPedido(cl, produtos)
+		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
+	})
+
 	t.Run("validar nome do cliente vazio", func(internal *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
 		assert.Nil(internal, err)
