@@ -8,12 +8,14 @@ type CartaoDto struct {
 	CVV         string `json:"cvv"`
 }
 
+type ClienteDto struct {
+	Nome   string    `json:"nome"`
+	Email  string    `json:"email"`
+	Cartao CartaoDto `json:"cartao"`
+}
+
 type CriarPagamentoDto struct {
-	PedidoId   string `json:"pedidoId"`
-	ValorTotal int64  `json:"valorTotal"`
-	Cliente    struct {
-		Nome   string    `json:"nome"`
-		Email  string    `json:"email"`
-		Cartao CartaoDto `json:"cartao"`
-	} `json:"cliente"`
+	PedidoId   string     `json:"pedidoId"`
+	ValorTotal int64      `json:"valorTotal"`
+	Cliente    ClienteDto `json:"cliente"`
 }
