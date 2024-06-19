@@ -40,6 +40,10 @@ func (p *Pedido) validar() error {
 		return errors.Wrap(ErroClientePedidoInvalido, err.Error())
 	}
 
+	if err := p.validarProdutos(); err != nil {
+		return errors.Wrap(ErroProdutosPedidoInvalidos, err.Error())
+	}
+
 	if p.Status != RECEBIDO &&
 		p.Status != EM_PREPARACAO &&
 		p.Status != PRONTO &&
@@ -69,4 +73,14 @@ func (p *Pedido) Atualizar(status StatusPedido) error {
 	p.Status = status
 	p.AtualizadoEm = time.Now().UTC()
 	return p.validar()
+}
+
+func (p *Pedido) validarProdutos() error {
+	for _, pr := range p.Produtos {
+		if err := pr.Validar(); err != nil {
+			return err
+		}
+	}
+
+	return nil
 }

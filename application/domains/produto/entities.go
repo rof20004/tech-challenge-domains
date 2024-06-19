@@ -1,6 +1,8 @@
 package produto
 
 import (
+	"github.com/google/uuid"
+	"github.com/pkg/errors"
 	"strings"
 	"time"
 
@@ -29,10 +31,14 @@ func NovoProduto(nome, descricao string, preco int64, tipo TipoProduto) (Produto
 		CriadoEm:  time.Now().UTC(),
 	}
 
-	return p, p.validar()
+	return p, p.Validar()
 }
 
-func (p *Produto) validar() error {
+func (p *Produto) Validar() error {
+	if _, err := uuid.Parse(p.Id); err != nil {
+		return errors.Wrap(ErroIdProdutoInvalido, err.Error())
+	}
+
 	if strings.TrimSpace(p.Nome) == "" {
 		return ErroNomeProdutoObrigatorio
 	}
@@ -57,5 +63,5 @@ func (p *Produto) Atualizar(nome, descricao string, preco int64, tipo TipoProdut
 	p.Preco = preco
 	p.Tipo = tipo
 	p.AtualizadoEm = time.Now().UTC()
-	return p.validar()
+	return p.Validar()
 }

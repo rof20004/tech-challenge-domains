@@ -243,6 +243,38 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		assert.ErrorIs(internal, err, pedido.ErroClientePedidoInvalido)
 	})
 
+	t.Run("validar produtos com um produto de id vazio", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto1.Id = ""
+
+		_, err = pedido.NovoPedido(cl, []produto.Produto{produto1, produto2})
+		assert.ErrorIs(internal, err, pedido.ErroProdutosPedidoInvalidos)
+	})
+
+	t.Run("validar produtos com um produto de preco igual a zero", func(internal *testing.T) {
+		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
+		assert.Nil(internal, err)
+
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		assert.Nil(internal, err)
+
+		produto2.Preco = 0
+
+		_, err = pedido.NovoPedido(cl, []produto.Produto{produto1, produto2})
+		assert.ErrorIs(internal, err, pedido.ErroProdutosPedidoInvalidos)
+	})
+
 	t.Run("validar valor total passando produtos vazio", func(internal *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344")
 		assert.Nil(internal, err)
