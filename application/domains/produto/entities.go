@@ -47,10 +47,10 @@ func (p *Produto) Validar() error {
 		return ErroPrecoProdutoInvalido
 	}
 
-	if p.Tipo != LANCHE &&
-		p.Tipo != ACOMPANHAMENTO &&
-		p.Tipo != BEBIDA &&
-		p.Tipo != SOBREMESA {
+	if p.Tipo != Lanche &&
+		p.Tipo != Acompanhamento &&
+		p.Tipo != Bebida &&
+		p.Tipo != Sobremesa {
 		return ErroTipoProdutoInvalido
 	}
 

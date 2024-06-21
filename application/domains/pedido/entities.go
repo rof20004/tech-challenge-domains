@@ -28,7 +28,7 @@ func NovoPedido(cliente cliente.Cliente, produtos []produto.Produto) (Pedido, er
 		Id:         utils.GenerateUuid(),
 		Cliente:    cliente,
 		Produtos:   produtos,
-		Status:     RECEBIDO,
+		Status:     Recebido,
 		ValorTotal: getValorTotal(produtos),
 		CriadoEm:   time.Now().UTC(),
 	}
@@ -49,11 +49,11 @@ func (p *Pedido) validar() error {
 		return errors.Wrap(ErroProdutosPedidoInvalidos, err.Error())
 	}
 
-	if p.Status != RECEBIDO &&
-		p.Status != EM_PREPARACAO &&
-		p.Status != PRONTO &&
-		p.Status != FINALIZADO &&
-		p.Status != CANCELADO {
+	if p.Status != Recebido &&
+		p.Status != EmPreparacao &&
+		p.Status != Pronto &&
+		p.Status != Finalizado &&
+		p.Status != Cancelado {
 		return ErroStatusPedidoInvalido
 	}
 

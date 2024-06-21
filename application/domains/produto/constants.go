@@ -1,8 +1,8 @@
 package produto
 
 const (
-	LANCHE         TipoProduto = "LANCHE"
-	ACOMPANHAMENTO TipoProduto = "ACOMPANHAMENTO"
-	BEBIDA         TipoProduto = "BEBIDA"
-	SOBREMESA      TipoProduto = "SOBREMESA"
+	Lanche         TipoProduto = "Lanche"
+	Acompanhamento TipoProduto = "Acompanhamento"
+	Bebida         TipoProduto = "Bebida"
+	Sobremesa      TipoProduto = "Sobremesa"
 )

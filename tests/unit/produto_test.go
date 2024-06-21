@@ -20,7 +20,7 @@ func deveCriarProdutoComSucesso(t *testing.T) {
 		nome            = "Misto duplo"
 		descricao       = "Sanduiche"
 		preco     int64 = 1200
-		tipo            = produto.LANCHE
+		tipo            = produto.Lanche
 	)
 
 	p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -38,7 +38,7 @@ func deveValidarProdutoAoCriar(t *testing.T) {
 			nome            = ""
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		_, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -50,7 +50,7 @@ func deveValidarProdutoAoCriar(t *testing.T) {
 			nome            = "               "
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		_, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -62,7 +62,7 @@ func deveValidarProdutoAoCriar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 0
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		_, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -74,7 +74,7 @@ func deveValidarProdutoAoCriar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = -100
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		_, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -123,7 +123,7 @@ func deveAtualizarProdutoComSucesso(t *testing.T) {
 		nome            = "Misto duplo"
 		descricao       = "Sanduiche"
 		preco     int64 = 1200
-		tipo            = produto.LANCHE
+		tipo            = produto.Lanche
 	)
 
 	p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -136,7 +136,7 @@ func deveAtualizarProdutoComSucesso(t *testing.T) {
 	assert.NotZero(t, p.CriadoEm)
 	assert.Zero(t, p.AtualizadoEm)
 
-	err = p.Atualizar("Novo nome", "nova descrição", 1000, produto.ACOMPANHAMENTO)
+	err = p.Atualizar("Novo nome", "nova descrição", 1000, produto.Acompanhamento)
 	assert.Nil(t, err)
 	assert.NotZero(t, p.Id)
 	assert.NotEqual(t, nome, p.Nome)
@@ -152,7 +152,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -172,7 +172,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -192,7 +192,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -212,7 +212,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -232,7 +232,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -252,7 +252,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)
@@ -272,7 +272,7 @@ func deveValidarProdutoAoAtualizar(t *testing.T) {
 			nome            = "Misto duplo"
 			descricao       = "Sanduiche"
 			preco     int64 = 1200
-			tipo            = produto.LANCHE
+			tipo            = produto.Lanche
 		)
 
 		p, err := produto.NovoProduto(nome, descricao, preco, tipo)

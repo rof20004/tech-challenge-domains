@@ -21,10 +21,10 @@ func deveCriarPedidoComSucesso(t *testing.T) {
 	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
-	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 	assert.Nil(t, err)
 
-	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 
 	produtos := []produto.Produto{produto1, produto2}
 
@@ -43,10 +43,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -60,10 +60,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -77,10 +77,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -94,10 +94,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -111,10 +111,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -128,10 +128,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -145,10 +145,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -162,10 +162,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -179,10 +179,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -196,10 +196,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -213,10 +213,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -230,10 +230,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -247,10 +247,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -264,10 +264,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produtos := []produto.Produto{produto1, produto2}
@@ -281,10 +281,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produto1.Id = ""
@@ -297,10 +297,10 @@ func deveValidarPedidoAoCriar(t *testing.T) {
 		cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 		assert.Nil(internal, err)
 
-		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+		produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 		assert.Nil(internal, err)
 
-		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+		produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 		assert.Nil(internal, err)
 
 		produto2.Preco = 0
@@ -332,10 +332,10 @@ func deveAtualizarPedidoComSucesso(t *testing.T) {
 	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
-	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 	assert.Nil(t, err)
 
-	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 
 	produtos := []produto.Produto{produto1, produto2}
 
@@ -348,19 +348,19 @@ func deveAtualizarPedidoComSucesso(t *testing.T) {
 	assert.NotZero(t, p.CriadoEm)
 	assert.Zero(t, p.AtualizadoEm)
 
-	err = p.Atualizar(pedido.CANCELADO)
+	err = p.Atualizar(pedido.Cancelado)
 	assert.Nil(t, err)
-	assert.Equal(t, pedido.CANCELADO, p.Status)
+	assert.Equal(t, pedido.Cancelado, p.Status)
 }
 
 func deveValidarPedidoAoAtualizar(t *testing.T) {
 	cl, err := cliente.NovoCliente("Rodolfo", "rof20004@gmail.com", "11122233344", "Rua A")
 	assert.Nil(t, err)
 
-	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.LANCHE)
+	produto1, err := produto.NovoProduto("Hot dog", "", 900, produto.Lanche)
 	assert.Nil(t, err)
 
-	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.LANCHE)
+	produto2, err := produto.NovoProduto("Misto duplo", "", 1200, produto.Lanche)
 
 	produtos := []produto.Produto{produto1, produto2}
 
@@ -390,19 +390,19 @@ func deveValidarPedidoAoAtualizar(t *testing.T) {
 
 	t.Run("validar id vazio", func(internal *testing.T) {
 		p.Id = ""
-		err := p.Atualizar(pedido.FINALIZADO)
+		err := p.Atualizar(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 
 	t.Run("validar id com espaco em branco", func(internal *testing.T) {
 		p.Id = "           "
-		err := p.Atualizar(pedido.FINALIZADO)
+		err := p.Atualizar(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 
 	t.Run("validar id invalido", func(internal *testing.T) {
 		p.Id = "1231233123123"
-		err := p.Atualizar(pedido.FINALIZADO)
+		err := p.Atualizar(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 }
