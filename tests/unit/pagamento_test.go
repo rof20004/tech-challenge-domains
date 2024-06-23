@@ -1,6 +1,7 @@
 package unit
 
 import (
+	"errors"
 	"testing"
 
 	"github.com/rof20004/tech-challenge-domains/application/domains/pagamento"
@@ -13,6 +14,7 @@ func TestPagamento(t *testing.T) {
 	t.Run("deve criar pagamento com sucesso", deveCriarPagamentoComSucesso)
 	t.Run("deve validar pagamento ao criar", deveValidarPagamentoAoCriar)
 	t.Run("deve atualizar pagamento com sucesso", deveAtualizarPagamentoComSucesso)
+	t.Run("deve atualizar pagamento com motivo erro", deveAtualizarPagamentoComMotivoErro)
 	t.Run("deve validar pagamento ao atualizar", deveValidarPagamentoAoAtualizar)
 }
 
@@ -139,11 +141,35 @@ func deveAtualizarPagamentoComSucesso(t *testing.T) {
 	assert.Equal(t, pagamento.Pendente, p.Status)
 	assert.NotZero(t, p.CriadoEm)
 
-	err = p.Atualizar(uuid.NewString(), "", pagamento.Concluido)
+	err = p.Atualizar(uuid.NewString(), nil, pagamento.Concluido)
 	assert.Nil(t, err)
 	assert.Equal(t, pagamento.Concluido, p.Status)
 	assert.NotZero(t, p.TransactionId)
 	assert.Zero(t, p.MotivoErro)
+	assert.NotZero(t, p.AtualizadoEm)
+}
+
+func deveAtualizarPagamentoComMotivoErro(t *testing.T) {
+	var (
+		pedidoId       = uuid.NewString()
+		valor    int64 = 2000
+		email          = "rof20004@gmail.com"
+	)
+
+	p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+	assert.Nil(t, err)
+	assert.NotZero(t, p.Id)
+	assert.Equal(t, pedidoId, p.PedidoId)
+	assert.Equal(t, email, p.EmailCliente)
+	assert.Equal(t, valor, p.Valor)
+	assert.Equal(t, pagamento.Pendente, p.Status)
+	assert.NotZero(t, p.CriadoEm)
+
+	err = p.Atualizar("", errors.New("erro qualquer"), pagamento.Erro)
+	assert.Nil(t, err)
+	assert.Equal(t, pagamento.Erro, p.Status)
+	assert.Zero(t, p.TransactionId)
+	assert.NotZero(t, p.MotivoErro)
 	assert.NotZero(t, p.AtualizadoEm)
 }
 
@@ -158,7 +184,7 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
 		assert.Nil(internal, err)
 
-		err = p.Atualizar(uuid.NewString(), "", "")
+		err = p.Atualizar(uuid.NewString(), nil, "")
 		assert.ErrorIs(internal, err, pagamento.ErroStatusPagamentoInvalido)
 	})
 
@@ -172,7 +198,7 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
 		assert.Nil(internal, err)
 
-		err = p.Atualizar(uuid.NewString(), "", "             ")
+		err = p.Atualizar(uuid.NewString(), nil, "             ")
 		assert.ErrorIs(internal, err, pagamento.ErroStatusPagamentoInvalido)
 	})
 
@@ -186,7 +212,7 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
 		assert.Nil(internal, err)
 
-		err = p.Atualizar(uuid.NewString(), "", "TESTE")
+		err = p.Atualizar(uuid.NewString(), nil, "TESTE")
 		assert.ErrorIs(internal, err, pagamento.ErroStatusPagamentoInvalido)
 	})
 
@@ -200,7 +226,7 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
 		assert.Nil(internal, err)
 
-		err = p.Atualizar("", "", pagamento.Concluido)
+		err = p.Atualizar("", nil, pagamento.Concluido)
 		assert.ErrorIs(internal, err, pagamento.ErroTransactionIdObrigatorio)
 	})
 
@@ -214,7 +240,7 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
 		assert.Nil(internal, err)
 
-		err = p.Atualizar("        ", "", pagamento.Concluido)
+		err = p.Atualizar("        ", nil, pagamento.Concluido)
 		assert.ErrorIs(internal, err, pagamento.ErroTransactionIdObrigatorio)
 	})
 }

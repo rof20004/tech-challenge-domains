@@ -58,15 +58,18 @@ func (p *Pagamento) validar() error {
 	return nil
 }
 
-func (p *Pagamento) Atualizar(transactionId, erro string, status StatusPagamento) error {
-	p.TransactionId = transactionId
-	p.MotivoErro = erro
-	p.Status = status
-	p.AtualizadoEm = time.Now().UTC()
-
-	if strings.TrimSpace(p.MotivoErro) == "" && strings.TrimSpace(p.TransactionId) == "" {
+func (p *Pagamento) Atualizar(transactionId string, erro error, status StatusPagamento) error {
+	if erro == nil && strings.TrimSpace(transactionId) == "" {
 		return ErroTransactionIdObrigatorio
 	}
+
+	if erro != nil {
+		p.MotivoErro = erro.Error()
+	}
+
+	p.TransactionId = transactionId
+	p.Status = status
+	p.AtualizadoEm = time.Now().UTC()
 
 	return p.validar()
 }
