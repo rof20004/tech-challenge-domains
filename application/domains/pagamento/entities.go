@@ -1,8 +1,10 @@
 package pagamento
 
 import (
-	"github.com/rof20004/tech-challenge-domains/application/utils"
+	"strings"
 	"time"
+
+	"github.com/rof20004/tech-challenge-domains/application/utils"
 
 	"github.com/google/uuid"
 )
@@ -56,8 +58,15 @@ func (p *Pagamento) validar() error {
 	return nil
 }
 
-func (p *Pagamento) Atualizar(status StatusPagamento) error {
+func (p *Pagamento) Atualizar(transactionId, erro string, status StatusPagamento) error {
+	p.TransactionId = transactionId
+	p.MotivoErro = erro
 	p.Status = status
 	p.AtualizadoEm = time.Now().UTC()
+
+	if strings.TrimSpace(p.MotivoErro) == "" && strings.TrimSpace(p.TransactionId) == "" {
+		return ErroTransactionIdObrigatorio
+	}
+
 	return p.validar()
 }
