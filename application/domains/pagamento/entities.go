@@ -15,7 +15,7 @@ type Pagamento struct {
 	Id            string          `json:"id"`
 	TransactionId string          `json:"transactionId"`
 	PedidoId      string          `json:"pedidoId"`
-	Valor         int64           `json:"valor"`
+	ValorTotal    int64           `json:"valorTotal"`
 	EmailCliente  string          `json:"emailCliente"`
 	Status        StatusPagamento `json:"status"`
 	MotivoErro    string          `json:"motivoErro"`
@@ -23,11 +23,11 @@ type Pagamento struct {
 	AtualizadoEm  time.Time       `json:"atualizadoEm"`
 }
 
-func NovoPagamento(pedidoId, emailCliente string, valor int64) (Pagamento, error) {
+func NovoPagamento(pedidoId, emailCliente string, valorTotal int64) (Pagamento, error) {
 	p := Pagamento{
 		Id:           uuid.NewString(),
 		PedidoId:     pedidoId,
-		Valor:        valor,
+		ValorTotal:   valorTotal,
 		EmailCliente: emailCliente,
 		Status:       Pendente,
 		CriadoEm:     time.Now().UTC(),
@@ -41,7 +41,7 @@ func (p *Pagamento) validar() error {
 		return ErroPedidoIdPagamentoInvalido
 	}
 
-	if p.Valor < 1 {
+	if p.ValorTotal < 1 {
 		return ErroValorPagamentoInvalido
 	}
 

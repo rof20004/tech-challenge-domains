@@ -20,17 +20,17 @@ func TestPagamento(t *testing.T) {
 
 func deveCriarPagamentoComSucesso(t *testing.T) {
 	var (
-		pedidoId       = uuid.NewString()
-		valor    int64 = 2000
-		email          = "rof20004@gmail.com"
+		pedidoId         = uuid.NewString()
+		valorTotal int64 = 2000
+		email            = "rof20004@gmail.com"
 	)
 
-	p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+	p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 	assert.Nil(t, err)
 	assert.NotZero(t, p.Id)
 	assert.Equal(t, pedidoId, p.PedidoId)
 	assert.Equal(t, email, p.EmailCliente)
-	assert.Equal(t, valor, p.Valor)
+	assert.Equal(t, valorTotal, p.ValorTotal)
 	assert.Equal(t, pagamento.Pendente, p.Status)
 	assert.NotZero(t, p.CriadoEm)
 }
@@ -38,106 +38,106 @@ func deveCriarPagamentoComSucesso(t *testing.T) {
 func deveValidarPagamentoAoCriar(t *testing.T) {
 	t.Run("validar pedido id vazio", func(internal *testing.T) {
 		var (
-			pedidoId       = ""
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = ""
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroPedidoIdPagamentoInvalido)
 	})
 
 	t.Run("validar pedido id com espaco em branco", func(internal *testing.T) {
 		var (
-			pedidoId       = "         "
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = "         "
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroPedidoIdPagamentoInvalido)
 	})
 
 	t.Run("validar pedido id invalido", func(internal *testing.T) {
 		var (
-			pedidoId       = "344j4njn234j"
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = "344j4njn234j"
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroPedidoIdPagamentoInvalido)
 	})
 
-	t.Run("validar valor igual a zero", func(internal *testing.T) {
+	t.Run("validar valor total igual a zero", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 0
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 0
+			email            = "rof20004@gmail.com"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroValorPagamentoInvalido)
 	})
 
-	t.Run("validar valor igual menor que zero", func(internal *testing.T) {
+	t.Run("validar valor total menor que zero", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = -1000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = -1000
+			email            = "rof20004@gmail.com"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroValorPagamentoInvalido)
 	})
 
 	t.Run("validar email cliente vazio", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = ""
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = ""
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroEmailClientePagamentoInvalido)
 	})
 
 	t.Run("validar email cliente com espaco em branco", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "          "
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "          "
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroEmailClientePagamentoInvalido)
 	})
 
 	t.Run("validar email cliente invalido", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "1i2j31i23j2i1j@tes"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "1i2j31i23j2i1j@tes"
 		)
 
-		_, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		_, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.ErrorIs(internal, err, pagamento.ErroEmailClientePagamentoInvalido)
 	})
 }
 
 func deveAtualizarPagamentoComSucesso(t *testing.T) {
 	var (
-		pedidoId       = uuid.NewString()
-		valor    int64 = 2000
-		email          = "rof20004@gmail.com"
+		pedidoId         = uuid.NewString()
+		valorTotal int64 = 2000
+		email            = "rof20004@gmail.com"
 	)
 
-	p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+	p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 	assert.Nil(t, err)
 	assert.NotZero(t, p.Id)
 	assert.Equal(t, pedidoId, p.PedidoId)
 	assert.Equal(t, email, p.EmailCliente)
-	assert.Equal(t, valor, p.Valor)
+	assert.Equal(t, valorTotal, p.ValorTotal)
 	assert.Equal(t, pagamento.Pendente, p.Status)
 	assert.NotZero(t, p.CriadoEm)
 
@@ -151,17 +151,17 @@ func deveAtualizarPagamentoComSucesso(t *testing.T) {
 
 func deveAtualizarPagamentoComMotivoErro(t *testing.T) {
 	var (
-		pedidoId       = uuid.NewString()
-		valor    int64 = 2000
-		email          = "rof20004@gmail.com"
+		pedidoId         = uuid.NewString()
+		valorTotal int64 = 2000
+		email            = "rof20004@gmail.com"
 	)
 
-	p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+	p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 	assert.Nil(t, err)
 	assert.NotZero(t, p.Id)
 	assert.Equal(t, pedidoId, p.PedidoId)
 	assert.Equal(t, email, p.EmailCliente)
-	assert.Equal(t, valor, p.Valor)
+	assert.Equal(t, valorTotal, p.ValorTotal)
 	assert.Equal(t, pagamento.Pendente, p.Status)
 	assert.NotZero(t, p.CriadoEm)
 
@@ -176,12 +176,12 @@ func deveAtualizarPagamentoComMotivoErro(t *testing.T) {
 func deveValidarPagamentoAoAtualizar(t *testing.T) {
 	t.Run("validar status vazio", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.Nil(internal, err)
 
 		err = p.Atualizar(uuid.NewString(), nil, "")
@@ -190,12 +190,12 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 
 	t.Run("validar status com espaco em branco", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.Nil(internal, err)
 
 		err = p.Atualizar(uuid.NewString(), nil, "             ")
@@ -204,12 +204,12 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 
 	t.Run("validar status invalido", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.Nil(internal, err)
 
 		err = p.Atualizar(uuid.NewString(), nil, "TESTE")
@@ -218,12 +218,12 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 
 	t.Run("validar transaction id vazio e erro nao preenchido", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.Nil(internal, err)
 
 		err = p.Atualizar("", nil, pagamento.Concluido)
@@ -232,12 +232,12 @@ func deveValidarPagamentoAoAtualizar(t *testing.T) {
 
 	t.Run("validar transaction id com espaco em branco e erro nao preenchido", func(internal *testing.T) {
 		var (
-			pedidoId       = uuid.NewString()
-			valor    int64 = 2000
-			email          = "rof20004@gmail.com"
+			pedidoId         = uuid.NewString()
+			valorTotal int64 = 2000
+			email            = "rof20004@gmail.com"
 		)
 
-		p, err := pagamento.NovoPagamento(pedidoId, email, valor)
+		p, err := pagamento.NovoPagamento(pedidoId, email, valorTotal)
 		assert.Nil(internal, err)
 
 		err = p.Atualizar("        ", nil, pagamento.Concluido)
