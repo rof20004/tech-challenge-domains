@@ -348,7 +348,7 @@ func deveAtualizarPedidoComSucesso(t *testing.T) {
 	assert.NotZero(t, p.CriadoEm)
 	assert.Zero(t, p.AtualizadoEm)
 
-	err = p.Atualizar(pedido.Cancelado)
+	err = p.AtualizarStatus(pedido.Cancelado)
 	assert.Nil(t, err)
 	assert.Equal(t, pedido.Cancelado, p.Status)
 }
@@ -374,35 +374,35 @@ func deveValidarPedidoAoAtualizar(t *testing.T) {
 	assert.Zero(t, p.AtualizadoEm)
 
 	t.Run("validar status vazio", func(internal *testing.T) {
-		err := p.Atualizar("")
+		err := p.AtualizarStatus("")
 		assert.ErrorIs(internal, err, pedido.ErroStatusPedidoInvalido)
 	})
 
 	t.Run("validar status com espacos em branco", func(internal *testing.T) {
-		err := p.Atualizar("             ")
+		err := p.AtualizarStatus("             ")
 		assert.ErrorIs(internal, err, pedido.ErroStatusPedidoInvalido)
 	})
 
 	t.Run("validar status inexistente", func(internal *testing.T) {
-		err := p.Atualizar("TESTE")
+		err := p.AtualizarStatus("TESTE")
 		assert.ErrorIs(internal, err, pedido.ErroStatusPedidoInvalido)
 	})
 
 	t.Run("validar id vazio", func(internal *testing.T) {
 		p.Id = ""
-		err := p.Atualizar(pedido.Finalizado)
+		err := p.AtualizarStatus(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 
 	t.Run("validar id com espaco em branco", func(internal *testing.T) {
 		p.Id = "           "
-		err := p.Atualizar(pedido.Finalizado)
+		err := p.AtualizarStatus(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 
 	t.Run("validar id invalido", func(internal *testing.T) {
 		p.Id = "1231233123123"
-		err := p.Atualizar(pedido.Finalizado)
+		err := p.AtualizarStatus(pedido.Finalizado)
 		assert.ErrorIs(internal, err, pedido.ErroIdPedidoInvalido)
 	})
 }

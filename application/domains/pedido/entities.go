@@ -74,7 +74,7 @@ func getValorTotal(produtos []produto.Produto) int64 {
 	return total
 }
 
-func (p *Pedido) Atualizar(status StatusPedido) error {
+func (p *Pedido) AtualizarStatus(status StatusPedido) error {
 	p.Status = status
 	p.AtualizadoEm = time.Now().UTC()
 	return p.validar()
