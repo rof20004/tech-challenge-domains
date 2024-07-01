@@ -12,13 +12,13 @@ import (
 type TipoProduto string
 
 type Produto struct {
-	Id           string      `json:"id"`
-	Nome         string      `json:"nome"`
-	Descricao    string      `json:"descricao"`
-	Preco        int64       `json:"preco"`
-	Tipo         TipoProduto `json:"tipo"`
-	CriadoEm     time.Time   `json:"criadoEm,omitempty"`
-	AtualizadoEm time.Time   `json:"atualizadoEm,omitempty"`
+	Id           string      `json:"id" bson:"id"`
+	Nome         string      `json:"nome" bson:"nome"`
+	Descricao    string      `json:"descricao" bson:"descricao"`
+	Preco        int64       `json:"preco" bson:"preco"`
+	Tipo         TipoProduto `json:"tipo" bson:"tipo"`
+	CriadoEm     time.Time   `json:"criadoEm,omitempty" bson:"criadoEm"`
+	AtualizadoEm time.Time   `json:"atualizadoEm,omitempty" bson:"atualizadoEm"`
 }
 
 func NovoProduto(nome, descricao string, preco int64, tipo TipoProduto) (Produto, error) {
