@@ -9,11 +9,11 @@ import (
 )
 
 type Cliente struct {
-	Id       string `json:"id"`
-	Nome     string `json:"nome"`
-	Email    string `json:"email"`
-	Cpf      string `json:"cpf"`
-	Endereco string `json:"endereco"`
+	Id       string `json:"id" bson:"id"`
+	Nome     string `json:"nome" bson:"nome"`
+	Email    string `json:"email" bson:"email"`
+	Cpf      string `json:"cpf" bson:"cpf"`
+	Endereco string `json:"endereco" bson:"endereco"`
 }
 
 func NovoCliente(nome, email, cpf, endereco string) (Cliente, error) {

@@ -12,15 +12,15 @@ import (
 type StatusPagamento string
 
 type Pagamento struct {
-	Id            string          `json:"id"`
-	TransactionId string          `json:"transactionId"`
-	PedidoId      string          `json:"pedidoId"`
-	ValorTotal    int64           `json:"valorTotal"`
-	EmailCliente  string          `json:"emailCliente"`
-	Status        StatusPagamento `json:"status"`
-	MotivoErro    string          `json:"motivoErro"`
-	CriadoEm      time.Time       `json:"criadoEm"`
-	AtualizadoEm  time.Time       `json:"atualizadoEm"`
+	Id            string          `json:"id" bson:"id"`
+	TransactionId string          `json:"transactionId" bson:"transactionId"`
+	PedidoId      string          `json:"pedidoId" bson:"pedidoId"`
+	ValorTotal    int64           `json:"valorTotal" bson:"valorTotal"`
+	EmailCliente  string          `json:"emailCliente" bson:"emailCliente"`
+	Status        StatusPagamento `json:"status" bson:"status"`
+	MotivoErro    string          `json:"motivoErro" bson:"motivoErro"`
+	CriadoEm      time.Time       `json:"criadoEm" bson:"criadoEm"`
+	AtualizadoEm  time.Time       `json:"atualizadoEm" bson:"atualizadoEm"`
 }
 
 func NovoPagamento(pedidoId, emailCliente string, valorTotal int64) (Pagamento, error) {

@@ -14,13 +14,13 @@ import (
 type StatusPedido string
 
 type Pedido struct {
-	Id           string            `json:"id"`
-	Cliente      cliente.Cliente   `json:"cliente"`
-	Produtos     []produto.Produto `json:"produtos"`
-	Status       StatusPedido      `json:"status"`
-	ValorTotal   int64             `json:"valorTotal"`
-	CriadoEm     time.Time         `json:"criadoEm"`
-	AtualizadoEm time.Time         `json:"atualizadoEm"`
+	Id           string            `json:"id" bson:"id"`
+	Cliente      cliente.Cliente   `json:"cliente" bson:"cliente"`
+	Produtos     []produto.Produto `json:"produtos" bson:"produtos"`
+	Status       StatusPedido      `json:"status" bson:"status"`
+	ValorTotal   int64             `json:"valorTotal" bson:"valorTotal"`
+	CriadoEm     time.Time         `json:"criadoEm" bson:"criadoEm"`
+	AtualizadoEm time.Time         `json:"atualizadoEm" bson:"atualizadoEm"`
 }
 
 func NovoPedido(cliente cliente.Cliente, produtos []produto.Produto) (Pedido, error) {
