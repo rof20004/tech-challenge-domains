@@ -6,8 +6,8 @@ on:
       - dev
 
 jobs:
-  quality:
-    name: Sonar Test & Coverage
+  test:
+    name: Testes unitários
     runs-on: ubuntu-latest
     environment: dev
 
@@ -20,6 +20,12 @@ jobs:
         run:
           ./tests/unit/_run.sh
 
+  quality:
+    name: Sonar Scan
+    runs-on: ubuntu-latest
+    environment: dev
+
+    steps:
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@v2.3.0
         env:

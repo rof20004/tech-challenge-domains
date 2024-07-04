@@ -8,8 +8,6 @@
     <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=vulnerabilities" alt="Vulnerability">
 </p>
 
-Esse repositório contém as entidades de domínio do Tech Challenge.
-
 #
 
 Esse repositório contém as entidades de domínio do Tech Challenge.
