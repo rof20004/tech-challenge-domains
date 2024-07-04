@@ -33,6 +33,10 @@ jobs:
     needs: test
 
     steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          
       - name: Download test results
         uses: actions/download-artifact@v3
         with:
