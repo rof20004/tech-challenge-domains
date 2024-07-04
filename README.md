@@ -1,8 +1,14 @@
 # Tech Challenge Domains
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=rof20004_tech-challenge-domains)
+<p align="center">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=alert_status" alt="Quality Gate Status">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=coverage" alt="Coverage">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=security_rating" alt="Security">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=sqale_rating" alt="Maintainability">
+    <img src="https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=vulnerabilities" alt="Vulnerability">
+</p>
 
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=rof20004_tech-challenge-domains&metric=coverage)](https://sonarcloud.io/summary/new_code?id=rof20004_tech-challenge-domains)
+Esse repositório contém as entidades de domínio do Tech Challenge.
 
 #
 
