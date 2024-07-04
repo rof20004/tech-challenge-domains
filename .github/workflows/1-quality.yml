@@ -24,6 +24,7 @@ jobs:
     name: Sonar Scan
     runs-on: ubuntu-latest
     environment: dev
+    needs: test
 
     steps:
       - name: SonarCloud Scan
